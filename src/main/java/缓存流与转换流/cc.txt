@@ -1,1 +1,5 @@
-���
+从这段代码中可以看出Javac分析词法的原貌，从源文件的一个字符开始，按照Java语法规范依次找出package、import、类定义，以及属性和方法定义等，最后构建一个抽象语法树。
+
+词法分析器的分析结果就是将这个类中的所有关键词匹配到Token类的所有项中的任何一项，如上面的类的匹配结果为：第一个Token是Token.PACKAGE，接着是一个Token.IDENTIFIER，后面是Token.SEMI，再后面是类的修饰符Token.PUBLIC，然后是类关键词Token.CLASS，后面是类名Token.IDENTIFIER，接着就是Token.LBRACE；再然后就是类的属性定义了，变量类型是Token.INT，变量名是Token.IDENTIFIER，后面跟着Token.SEMI；最后是类结束符Token.RBRACE。
+
+这个类对应的Token流如图4-4所示。
